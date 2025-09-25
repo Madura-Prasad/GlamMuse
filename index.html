@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamMuse | Women's Fashion & Beauty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #ffacc7;
+            --accent: #c86b85;
+            --light: #fff5f7;
+            --dark: #4a2c40;
+            --text: #5a3a4a;
+            --gray: #f8f0f3;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons i {
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .header-icons i:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)),
+                url('IMG/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.4);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 139, 0.6);
+        }
+
+        /* Filters Section */
+        .filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            font-size: 16px;
+            background-color: var(--gray);
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        select {
+            padding: 12px 20px;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            background-color: var(--gray);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: fill;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: var(--text);
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+
+        .rating-value {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+
+        /* Special Offer Popup - On Site Load */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.7);
+            transition: transform 0.4s;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .popup-icon {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .popup-title {
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .popup-discount {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup-message {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        .popup-timer {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 25px;
+            background: var(--light);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .popup-btn {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .popup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #6a4458 100%);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #e0c9d4;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e0c9d4;
+            font-size: 14px;
+        }
+
+        /* Logo Upload Section */
+        .logo-upload {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .logo-upload h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            background: var(--gray);
+            color: var(--text);
+            border: 2px dashed var(--accent);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .upload-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-options {
+                width: 100%;
+            }
+
+            select {
+                flex: 1;
+            }
+
+            .popup-content {
+                padding: 30px 20px;
+            }
+
+            .popup-discount {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 50px 0;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+
+        /* Fullscreen star animation */
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .star {
+            position: fixed;
+            top: -50px;
+            font-size: 20px;
+            color: gold;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        /* Fullscreen transparent popup for animation */
+        .fullscreen-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+            text-align: center;
+        }
+
+        .fullscreen-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fullscreen-popup h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            animation: zoomIn 0.5s ease;
+        }
+
+        .fullscreen-popup p {
+            font-size: 20px;
+            color: var(--text);
+            animation: fadeIn 0.5s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        /* Animations */
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+
+        .original-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+}
+
+.discounted-price {
+    color: #e53935;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.discount-badge {
+    background-color: #e53935;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Welcome Popup -->
+    <div class="popup-overlay active" id="welcomePopup">
+        <div class="popup-content">
+            <div class="popup-close" id="closeWelcomePopup">&times;</div>
+            <div class="popup-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h2 class="popup-title">💖 Welcome, Gorgeous! 💖</h2>
+            <div class="popup-discount">🌸 70% OFF</div>
+            <p class="popup-message">
+                Ladies, treat yourself today! ✨
+                Enjoy an <strong>exclusive 70% OFF</strong> on your first GlamMuse purchase — a little gift just for you.
+                Don't wait, this dreamy deal is fleeting! 🌷
+            </p>
+            <button class="popup-btn" id="claimWelcomeOfferBtn">💅 Claim My 70% Glam Discount</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="IMG/GlamMuse.png" alt="GlamMuse Logo" class="logo-image" id="logoImage">
+                    <div class="logo">GlamMuse</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Fullscreen Animation Popup -->
+    <div class="fullscreen-popup" id="fullscreenPopup">
+        <h2>💖 Congrats! 💖</h2>
+        <p>Your 70% Glam Discount has been applied!</p>
+    </div>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+    <div class="container">
+        <h1>Unleash Your Inner Glam</h1>
+        <p>Step into a world of elegance and confidence with our exclusive fashion and beauty picks made for the modern woman.</p>
+        <a href="" class="btn">Shop the Latest Trends</a>
+    </div>
+</section>
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filters Section -->
+        <section class="filters">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+            <div class="filter-options">
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="clothing">Nail Art & Polish</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="accessories">Accessories</option>
+                    <option value="beauty">Beauty</option>
+                </select>
+                <select id="sortSelect">
+                    <option value="featured">Featured</option>
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-grid" id="productsContainer">
+            <!-- Products will be loaded here by JavaScript -->
+        </section>
+    </div>
+
+    <!-- Special Offer Popup - Shows on Product Click -->
+    <div class="popup-overlay" id="offerPopup">
+        <div class="popup-content">
+            <div class="popup-close" id="closePopup">&times;</div>
+            <div class="popup-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h2 class="popup-title">Special Offer Just For You!</h2>
+            <div class="popup-discount">70% OFF</div>
+            <p class="popup-message">Hurry up! Grab this exclusive discount before it's gone. Limited time offer!</p>
+            <div class="popup-timer" id="popupTimer">05:00</div>
+            <button class="popup-btn" id="claimOfferBtn">Claim My 70% Discount</button>
+            <p style="margin-top: 15px; font-size: 14px; color: #999;">Offer expires in <span id="timerMinutes">5</span>
+                minutes</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About GlamMuse</h3>
+                    <p>GlamMuse is a premium fashion destination for women who appreciate style, quality, and elegance.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Sale</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Lookbook</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get special offers, free giveaways, and new product updates.</p>
+                    <div class="search-box" style="margin-top: 15px;">
+                        <input type="text" placeholder="Your email address">
+                        <i class="fas fa-paper-plane" style="cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GlamMuse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data with more realistic ratings
+        const productsData = [
+            {
+                id: 1,
+                name: "Beetles 20-Color Pastel & Glitter Gel Nail Set – Dreamy Spring Manicure Kit with Base & Top Coat",
+                description: "Beetles Gel Polish – 20 Dreamy Town Colors, 0.25oz, Shimmery & Harmless Gel for All Ages, Includes Nail Art Kit",
+                price: 31.99,
+                category: "Nail Art & Polish",
+                rating: 4.5,
+                badge: "Limited time deal",
+                image: "IMG/Item/1.jpg",
+                discount: 60 
+            },
+            {
+                id: 2,
+                name: "TOMICCA 192pcs Short Almond Clear Nail Tips – 12 Sizes DIY Acrylic Gel Kit",
+                description: "TOMICCA 192pcs Short Almond Gel Nail Tips – DIY Acrylic Nail Kit",
+                price: 8.99,
+                category: "Nail Art & Polish",
+                rating: 4.3,
+                badge: "Bestseller",
+                image: "IMG/Item/2.jpg",
+                discount: 25 
+            },
+            {
+                id: 3,
+                name: "Artdone 16-Jar Chrome & Holographic Nail Powder Set – Metallic, Mirror & Chameleon Pigments 1g",
+                description: "Artdone 16-Jar Nail Art Powder Set – 209g Round Powders for Creative Nail Designs”",
+                price: 11.99,
+                category: "Nail Art & Polish",
+                rating: 4.7,
+                badge: "Sale",
+                image: "IMG/Item/3.jpg",
+                discount: 25
+            },
+            {
+                id: 4,
+                name: "Beetles 31pcs Nail Art Brush & Dotting Tool Set – All-in-One Manicure Kit with Palette",
+                description: "Beetles 31pcs Nail Art Brush Set – Metal Handles, Variety Pack for Manicure",
+                price: 9.89,
+                category: "Nail Art & Polish",
+                rating: 4.6,
+                badge: "Popular",
+                image: "IMG/Item/4.jpg",
+                discount: 40
+            },
+            {
+                id: 5,
+                name: "Artdone White Pearl Chrome Nail Powder – Iridescent Aurora Metallic Pigment for Nails & Resin",
+                description: "Artdone White Pearl Nail Powder – 20g Shimmery Finish for Nail Art",
+                price: 7.99,
+                category: "Nail Art & Polish",
+                rating: 4.5,
+                badge: "",
+                image: "IMG/Item/5.jpg",
+                discount: 30
+            },
+            {
+                id: 6,
+                name: "Makartt 30ml Nail Rhinestone Glue – Super Strong Gel for Gems & 3D Nail Art",
+                description: "Makartt UV Resin Gel – Crack-Resistant, Non-Toxic, Strong Acrylic Nail Gel",
+                price: 15.99,
+                category: "Nail Art & Polish",
+                rating: 4.4,
+                badge: "New",
+                image: "IMG/Item/6.jpg",
+                discount: 45
+            }
+        ];
+
+        // DOM elements
+        const productsContainer = document.getElementById('productsContainer');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const sortSelect = document.getElementById('sortSelect');
+        const offerPopup = document.getElementById('offerPopup');
+        const closePopup = document.getElementById('closePopup');
+        const claimOfferBtn = document.getElementById('claimOfferBtn');
+        const popupTimer = document.getElementById('popupTimer');
+        const timerMinutes = document.getElementById('timerMinutes');
+        const logoUrlInput = document.getElementById('logoUrlInput');
+        const uploadLogoBtn = document.getElementById('uploadLogoBtn');
+        const logoImage = document.getElementById('logoImage');
+
+        // Welcome popup elements
+        const welcomePopup = document.getElementById('welcomePopup');
+        const closeWelcomePopup = document.getElementById('closeWelcomePopup');
+        const claimWelcomeOfferBtn = document.getElementById('claimWelcomeOfferBtn');
+
+        // Timer variables
+        let timeLeft = 300; // 5 minutes in seconds for product popup
+        let timerInterval;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            displayProducts(productsData);
+
+            // Add event listeners
+            searchInput.addEventListener('input', filterProducts);
+            categoryFilter.addEventListener('change', filterProducts);
+            sortSelect.addEventListener('change', filterProducts);
+            closePopup.addEventListener('click', closeOfferPopup);
+            claimOfferBtn.addEventListener('click', claimOffer);
+            closeWelcomePopup.addEventListener('click', closeWelcomeOfferPopup);
+            claimWelcomeOfferBtn.addEventListener('click', claimWelcomeOffer);
+
+            // Close popups when clicking outside
+            offerPopup.addEventListener('click', function (e) {
+                if (e.target === offerPopup) {
+                    closeOfferPopup();
+                }
+            });
+
+            welcomePopup.addEventListener('click', function (e) {
+                if (e.target === welcomePopup) {
+                    closeWelcomeOfferPopup();
+                }
+            });
+
+            // Auto-close welcome popup after 10 seconds
+            setTimeout(() => {
+                welcomePopup.classList.remove('active');
+            }, 10000);
+        });
+
+        // Display products in the grid
+        function displayProducts(products) {
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--accent);">No products found matching your criteria.</div>';
+                return;
+            }
+
+            productsContainer.innerHTML = '';
+
+           productsData.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.className = 'product-card';
+
+    // Generate star rating HTML - REAL TIME
+    const stars = generateRealStarRating(product.rating);
+
+    // Generate badge if exists
+    const badge = product.badge ? `<span class="product-badge">${product.badge}</span>` : '';
+
+    // Check for discount
+    let priceHTML = `<div class="product-price">$${product.price.toFixed(2)}</div>`;
+    if (product.discount) {
+        const discountedPrice = (product.price * (1 - product.discount / 100)).toFixed(2);
+        priceHTML = `
+            <div class="product-price">
+                <span class="original-price">$${product.price.toFixed(2)}</span>
+                <span class="discounted-price">$${discountedPrice}</span>
+                <span class="discount-badge">${product.discount}% OFF</span>
+            </div>
+        `;
+    }
+
+    productCard.innerHTML = `
+        ${badge}
+        <img src="${product.image}" alt="${product.name}" class="product-image">
+        <div class="product-info">
+            <div class="product-category">${product.category}</div>
+            <h3 class="product-title">${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <div class="product-rating">
+                <div class="stars">${stars}</div>
+                <span class="rating-value">${product.rating.toFixed(1)}</span>
+            </div>
+            ${priceHTML}
+            <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+        </div>
+    `;
+
+    productsContainer.appendChild(productCard);
+});
+
+
+            // Add event listeners to Add to Cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const productId = this.getAttribute('data-id');
+                    addToCart(productId);
+                });
+            });
+
+            // Add event listeners to product cards for showing offer
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    showOfferPopup();
+                });
+            });
+        }
+
+        // Generate REAL star rating HTML (no half stars)
+        function generateRealStarRating(rating) {
+            // Round to nearest whole number for display
+            const roundedRating = Math.round(rating);
+            let stars = '';
+
+            // Create full stars
+            for (let i = 0; i < roundedRating; i++) {
+                stars += '★';
+            }
+
+            // Create empty stars
+            for (let i = roundedRating; i < 5; i++) {
+                stars += '☆';
+            }
+
+            return stars;
+        }
+
+        // Filter and sort products based on user input
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+            const sortBy = sortSelect.value;
+
+            let filteredProducts = productsData.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                    product.description.toLowerCase().includes(searchTerm);
+                const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            // Sort products
+            switch (sortBy) {
+                case 'newest':
+                    // Keep original order (newest first based on ID)
+                    break;
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    filteredProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                default: // featured
+                    // Sort by badge presence and rating
+                    filteredProducts.sort((a, b) => {
+                        if (a.badge && !b.badge) return -1;
+                        if (!a.badge && b.badge) return 1;
+                        return b.rating - a.rating;
+                    });
+            }
+
+            displayProducts(filteredProducts);
+        }
+
+        // Add to cart functionality
+        function addToCart(productId) {
+            const product = productsData.find(p => p.id == productId);
+            if (product) {
+                // In a real application, you would add to a cart array or send to a server
+                // For demo purposes, we'll show a simple alert
+                const notification = document.createElement('div');
+                notification.textContent = `Added ${product.name} to cart!`;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: var(--primary);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    animation: slideIn 0.3s ease;
+                `;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 2000);
+            }
+        }
+
+        // Show special offer popup (when clicking on product)
+        function showOfferPopup() {
+            offerPopup.classList.add('active');
+            startTimer();
+        }
+
+        // Close offer popup
+        function closeOfferPopup() {
+            offerPopup.classList.remove('active');
+            clearInterval(timerInterval);
+            timeLeft = 300; // Reset timer
+        }
+
+        // Claim offer functionality (for product popup)
+        function claimOffer() {
+            alert('Congratulations! Your 70% discount has been applied to your cart.');
+            closeOfferPopup();
+        }
+
+        // Close welcome offer popup
+        function closeWelcomeOfferPopup() {
+            welcomePopup.classList.remove('active');
+        }
+
+        const partyPopup = document.getElementById('fullscreenPopup');
+
+        // Claim welcome offer with party items animation
+        function claimWelcomeOffer() {
+            closeWelcomeOfferPopup(); // close the small welcome popup
+            partyPopup.classList.add('active');
+
+            const partyItems = ['🎉'];
+
+            // Generate 50 random party items
+            for (let i = 0; i < 50; i++) {
+                const item = document.createElement('div');
+                item.classList.add('star'); // reuse star class for falling animation
+                item.style.left = Math.random() * window.innerWidth + 'px';
+                item.style.fontSize = 15 + Math.random() * 25 + 'px';
+                item.style.animationDuration = 2 + Math.random() * 3 + 's';
+                item.style.animationDelay = Math.random() * 0.5 + 's';
+                item.textContent = partyItems[Math.floor(Math.random() * partyItems.length)];
+                document.body.appendChild(item);
+
+                item.addEventListener('animationend', () => {
+                    item.remove();
+                });
+            }
+
+            // Auto-hide popup after 5 seconds
+            setTimeout(() => {
+                partyPopup.classList.remove('active');
+            }, 5000);
+        }
+
+
+
+        // Close the fullscreen popup
+        function closeFullscreenPopup() {
+            fullscreenPopup.classList.remove('active');
+        }
+
+
+        // Start countdown timer for product popup
+        function startTimer() {
+            clearInterval(timerInterval);
+            updateTimerDisplay();
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    offerPopup.classList.remove('active');
+                    timeLeft = 300; // Reset timer
+                }
+            }, 1000);
+        }
+
+        // Update timer display for product popup
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            popupTimer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timerMinutes.textContent = minutes;
+        }
+
+        // Update logo with custom image
+        function updateLogo() {
+            const logoUrl = logoUrlInput.value.trim();
+            if (logoUrl) {
+                logoImage.src = logoUrl;
+                logoUrlInput.value = '';
+                alert('Logo updated successfully!');
+            } else {
+                alert('Please enter a valid image URL');
+            }
+        }
+
+        // Add CSS for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
