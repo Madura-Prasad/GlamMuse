@@ -1070,6 +1070,30 @@
             border-radius: 0 0 5px 5px;
             cursor: pointer;
         }
+
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .trust-badge i {
+            color: var(--trust-green);
+            font-size: 18px;
+        }
     </style>
 </head>
 
@@ -1079,20 +1103,18 @@
     <div class="popup-overlay active" id="welcomePopup">
         <div class="popup-content">
             <div class="popup-close" id="closeWelcomePopup">&times;</div>
-            <div class="popup-icon">
-                <i class="fas fa-gift"></i>
-            </div>
-            <h2 class="popup-title">💖 Welcome, Gorgeous! 💖</h2>
-            <div class="popup-discount">🌸 70% OFF</div>
+            <h2 class="popup-title">Welcome to GlamMuse</h2>
+            <div class="popup-discount">Up to 50% OFF on your first purchase</div>
             <p class="popup-message">
-                Ladies, treat yourself today! ✨
-                Enjoy an <strong>exclusive 70% OFF</strong> on your first GlamMuse purchase — a little gift just for
-                you.
-                Don't wait, this dreamy deal is fleeting! 🌷
+                Enjoy a special welcome offer from GlamMuse!
+                <strong>Up to 50% OFF</strong> on your first order.
+                Shopping with us is 100% safe and secure. We respect your privacy.
             </p>
-            <button class="popup-btn" id="claimWelcomeOfferBtn">💅 Claim My 70% Glam Discount</button>
+            <button class="popup-btn" id="claimWelcomeOfferBtn">Claim My Discount</button>
         </div>
     </div>
+
+
 
     <!-- Header -->
     <header>
@@ -1125,6 +1147,13 @@
         </div>
     </header>
 
+    <div class="trust-badges">
+    <div class="trust-badge"><i class="fas fa-shield-alt"></i> Secure Payment</div>
+    <div class="trust-badge"><i class="fas fa-truck"></i> Free Shipping</div>
+    <div class="trust-badge"><i class="fas fa-undo"></i> Easy Returns</div>
+    <div class="trust-badge"><i class="fas fa-headset"></i> 24/7 Support</div>
+    <div class="trust-badge"><i class="fas fa-smile"></i> 2000+ Happy Customers</div>
+</div>
 
 
     <!-- Fullscreen Animation Popup -->
@@ -1298,53 +1327,57 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About GlamMuse</h3>
-                    <p>GlamMuse is a premium fashion destination for women who appreciate style, quality, and elegance.
-                    </p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Best Sellers</a></li>
-                        <li><a href="#">Sale</a></li>
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Lookbook</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Customer Care</h3>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Size Guide</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to get special offers, free giveaways, and new product updates.</p>
-                    <div class="search-box" style="margin-top: 15px;">
-                        <input type="text" placeholder="Your email address">
-                        <i class="fas fa-paper-plane" style="cursor: pointer;"></i>
-                    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About GlamMuse</h3>
+                <p>GlamMuse is a premium fashion destination for women who appreciate style, quality, and elegance.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 GlamMuse. All rights reserved.</p>
+
+            <!-- Replaced Shop with Contact & Address -->
+            <div class="footer-column">
+                <h3>Contact & Address</h3>
+                <ul>
+                    <li>📍 530 7th Ave, Suite 803, New York, NY 10018</li>
+                    <li>✉️ support@glammuse.com</li>
+                    <li>📞 +1 (212) 555-7890</li>
+                    <li>🕒 Mon - Sat: 9:00 AM - 6:00 PM EST</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get special offers, free giveaways, and new product updates.</p>
+                <div class="search-box" style="margin-top: 15px;">
+                    <input type="text" placeholder="Your email address">
+                    <i class="fas fa-paper-plane" style="cursor: pointer;"></i>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="copyright">
+            <p>&copy; 2025 GlamMuse. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
 
     <script>
         const duration = {
@@ -1455,7 +1488,7 @@
                 badge: "New",
                 image: "IMG/Item/6.jpg",
                 discount: 45
-            }
+            },
         ];
 
         // DOM elements
@@ -1933,7 +1966,7 @@
             // Auto-hide popup after 5 seconds
             setTimeout(() => {
                 fullscreenPopup.classList.remove('active');
-            }, 5000);
+            }, 10000);
         }
 
         // Close the fullscreen popup
