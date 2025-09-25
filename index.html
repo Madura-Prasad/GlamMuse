@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlamMuse | Women's Fashion & Beauty</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="IMG/GlamMuse.ico">
     <style>
         * {
             margin: 0;
@@ -63,11 +64,13 @@
             width: auto;
             margin-right: 10px;
             border-radius: 5px;
+            cursor: pointer;
         }
 
         .logo {
             font-size: 28px;
             font-weight: 700;
+            cursor: pointer;
         }
 
         nav ul {
@@ -86,10 +89,12 @@
             transition: all 0.3s;
             padding: 5px 10px;
             border-radius: 20px;
+            cursor: pointer;
         }
 
         nav ul li a:hover {
             background-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
         }
 
         .header-icons {
@@ -109,7 +114,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)),
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)),
                 url('IMG/hero.jpg');
             background-size: cover;
             background-position: center;
@@ -162,6 +167,7 @@
             flex-wrap: wrap;
             gap: 15px;
             justify-content: space-between;
+            align-items: center;
         }
 
         .search-box {
@@ -215,12 +221,239 @@
             border-color: var(--primary);
         }
 
+        /* View Toggle Buttons */
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-toggle button {
+            background: var(--gray);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-toggle button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .view-toggle button:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Sidebar Filters */
+        .sidebar-filters {
+            width: 280px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+
+        .sidebar-filters h3 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .filter-options-list {
+            list-style: none;
+        }
+
+        .filter-options-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-options-list input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .filter-options-list label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Enhanced Price Range Filter */
+        .price-range {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .price-inputs .price-input-group {
+            flex: 1;
+            position: relative;
+        }
+
+        .price-inputs .price-input-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .price-inputs input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid var(--gray);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+            background-color: white;
+        }
+
+        .price-inputs input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 139, 0.2);
+        }
+
+        .price-inputs .price-separator {
+            color: var(--accent);
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .price-slider-container {
+            margin: 15px 0;
+        }
+
+        .price-slider {
+            width: 100%;
+            height: 6px;
+            background: var(--gray);
+            border-radius: 5px;
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .price-slider .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 5px;
+            position: absolute;
+            left: 0%;
+            right: 0%;
+        }
+
+        .range-input {
+            position: relative;
+        }
+
+        .range-input input {
+            position: absolute;
+            top: -6px;
+            height: 6px;
+            width: 100%;
+            background: none;
+            pointer-events: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            pointer-events: auto;
+            -webkit-appearance: none;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .price-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text);
+            margin-top: 5px;
+        }
+
+        .rating-filter {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rating-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+        }
+
+        /* Products Section */
+        .products-section {
+            flex: 1;
+        }
+
         /* Products Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        /* Products List View */
+        .products-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .product-card {
@@ -231,6 +464,29 @@
             transition: all 0.3s;
             position: relative;
             cursor: pointer;
+        }
+
+        .products-grid .product-card {
+            height: 100%;
+        }
+
+        .products-list .product-card {
+            display: flex;
+            height: 200px;
+        }
+
+        .products-list .product-image {
+            width: 200px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .products-list .product-info {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .product-card:hover {
@@ -292,6 +548,10 @@
             overflow: hidden;
         }
 
+        .products-list .product-description {
+            -webkit-line-clamp: 3;
+        }
+
         .product-price {
             font-size: 22px;
             font-weight: 700;
@@ -331,6 +591,54 @@
 
         .add-to-cart:hover {
             background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+
+        /* Pagination Styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            margin-bottom: 60px;
+        }
+
+        .pagination button {
+            background: white;
+            border: 1px solid var(--gray);
+            color: var(--text);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pagination button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-info {
+            margin: 0 15px;
+            font-size: 14px;
+            color: var(--text);
         }
 
         /* Special Offer Popup - On Site Load */
@@ -552,72 +860,6 @@
             color: white;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                margin-top: 10px;
-            }
-
-            nav ul li {
-                margin: 0 10px;
-            }
-
-            .filters {
-                flex-direction: column;
-            }
-
-            .filter-options {
-                width: 100%;
-            }
-
-            select {
-                flex: 1;
-            }
-
-            .popup-content {
-                padding: 30px 20px;
-            }
-
-            .popup-discount {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 50px 0;
-            }
-
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-
         /* Fullscreen star animation */
         @keyframes fall {
             0% {
@@ -702,28 +944,132 @@
             }
         }
 
-
-
         .original-price {
-    text-decoration: line-through;
-    color: #888;
-    margin-right: 8px;
-}
+            text-decoration: line-through;
+            color: #888;
+            margin-right: 8px;
+        }
 
-.discounted-price {
-    color: #e53935;
-    font-weight: bold;
-    margin-right: 8px;
-}
+        .discounted-price {
+            color: #e53935;
+            font-weight: bold;
+            margin-right: 8px;
+        }
 
-.discount-badge {
-    background-color: #e53935;
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-}
+        .discount-badge {
+            background-color: #e53935;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
 
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar-filters {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-options {
+                width: 100%;
+            }
+
+            select {
+                flex: 1;
+            }
+
+            .popup-content {
+                padding: 30px 20px;
+            }
+
+            .popup-discount {
+                font-size: 36px;
+            }
+
+            .products-list .product-card {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .products-list .product-image {
+                width: 100%;
+                height: 250px;
+            }
+
+            .price-inputs {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .price-inputs .price-separator {
+                display: none;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 50px 0;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        .discount-timer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0px 0;
+            border-radius: 0 0 5px 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -740,7 +1086,8 @@
             <div class="popup-discount">🌸 70% OFF</div>
             <p class="popup-message">
                 Ladies, treat yourself today! ✨
-                Enjoy an <strong>exclusive 70% OFF</strong> on your first GlamMuse purchase — a little gift just for you.
+                Enjoy an <strong>exclusive 70% OFF</strong> on your first GlamMuse purchase — a little gift just for
+                you.
                 Don't wait, this dreamy deal is fleeting! 🌷
             </p>
             <button class="popup-btn" id="claimWelcomeOfferBtn">💅 Claim My 70% Glam Discount</button>
@@ -750,20 +1097,30 @@
     <!-- Header -->
     <header>
         <div class="container">
+            <div class="discount-timer" id="discountTimer">
+                ⏰ Sale ends in
+                <span id="days"></span>d
+                <span id="hours"></span>h
+                <span id="minutes"></span>m
+                <span id="seconds"></span>s
+            </div>
+
             <div class="header-content">
+
                 <div class="logo-container">
                     <img src="IMG/GlamMuse.png" alt="GlamMuse Logo" class="logo-image" id="logoImage">
                     <div class="logo">GlamMuse</div>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Sale</a></li>
+                        <li><a>Home</a></li>
+                        <li><a>Shop</a></li>
+                        <li><a>New Arrivals</a></li>
+                        <li><a>Collections</a></li>
+                        <li><a>Sale</a></li>
                     </ul>
                 </nav>
+
             </div>
         </div>
     </header>
@@ -776,17 +1133,14 @@
         <p>Your 70% Glam Discount has been applied!</p>
     </div>
 
-
-
     <!-- Hero Section -->
     <section class="hero">
-    <div class="container">
-        <h1>Unleash Your Inner Glam</h1>
-        <p>Step into a world of elegance and confidence with our exclusive fashion and beauty picks made for the modern woman.</p>
-        <a href="" class="btn">Shop the Latest Trends</a>
-    </div>
-</section>
-
+        <div class="container">
+            <h1>Discover Your Style</h1>
+            <p>Explore our curated collection of fashion and beauty products designed for the modern woman.</p>
+            <a class="btn">Shop New Arrivals</a>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <div class="container">
@@ -799,7 +1153,7 @@
             <div class="filter-options">
                 <select id="categoryFilter">
                     <option value="all">All Categories</option>
-                    <option value="clothing">Nail Art & Polish</option>
+                    <option value="Nail Art & Polish">Nail Art & Polish</option>
                     <option value="shoes">Shoes</option>
                     <option value="accessories">Accessories</option>
                     <option value="beauty">Beauty</option>
@@ -812,28 +1166,133 @@
                     <option value="rating">Highest Rated</option>
                 </select>
             </div>
-        </section>
-
-        <!-- Products Grid -->
-        <section class="products-grid" id="productsContainer">
-            <!-- Products will be loaded here by JavaScript -->
-        </section>
-    </div>
-
-    <!-- Special Offer Popup - Shows on Product Click -->
-    <div class="popup-overlay" id="offerPopup">
-        <div class="popup-content">
-            <div class="popup-close" id="closePopup">&times;</div>
-            <div class="popup-icon">
-                <i class="fas fa-gift"></i>
+            <div class="view-toggle">
+                <button id="gridView" class="active"><i class="fas fa-th"></i></button>
+                <button id="listView"><i class="fas fa-list"></i></button>
             </div>
-            <h2 class="popup-title">Special Offer Just For You!</h2>
-            <div class="popup-discount">70% OFF</div>
-            <p class="popup-message">Hurry up! Grab this exclusive discount before it's gone. Limited time offer!</p>
-            <div class="popup-timer" id="popupTimer">05:00</div>
-            <button class="popup-btn" id="claimOfferBtn">Claim My 70% Discount</button>
-            <p style="margin-top: 15px; font-size: 14px; color: #999;">Offer expires in <span id="timerMinutes">5</span>
-                minutes</p>
+        </section>
+
+        <!-- Main Content with Sidebar and Products -->
+        <div class="main-content">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar-filters">
+                <h3>Filter Products</h3>
+
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <ul class="filter-options-list">
+                        <li>
+                            <input type="checkbox" id="cat-nail" value="Nail Art & Polish" checked>
+                            <label for="cat-nail">Nail Art & Polish</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="cat-shoes" value="shoes">
+                            <label for="cat-shoes">Shoes</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="cat-accessories" value="accessories">
+                            <label for="cat-accessories">Accessories</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="cat-beauty" value="beauty">
+                            <label for="cat-beauty">Beauty</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Enhanced Price Range Filter -->
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="price-range">
+                        <div class="price-inputs">
+                            <div class="price-input-group">
+                                <label for="minPrice">Min Price</label>
+                                <input type="number" id="minPrice" placeholder="0" value="0" min="0" max="100">
+                            </div>
+                            <span class="price-separator">-</span>
+                            <div class="price-input-group">
+                                <label for="maxPrice">Max Price</label>
+                                <input type="number" id="maxPrice" placeholder="100" value="100" min="0" max="100">
+                            </div>
+                        </div>
+                        <div class="price-slider-container">
+                            <div class="price-slider">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="range-input">
+                                <input type="range" id="rangeMin" min="0" max="100" value="0">
+                                <input type="range" id="rangeMax" min="0" max="100" value="100">
+                            </div>
+                            <br>
+                            <div class="price-values">
+                                <span>$0</span>
+                                <span>$100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group">
+                    <h4>Customer Rating</h4>
+                    <div class="rating-filter">
+                        <div class="rating-option">
+                            <input type="checkbox" id="rating-5" value="5">
+                            <label for="rating-5">
+                                <span class="rating-stars">★★★★★</span> 5 Stars
+                            </label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="checkbox" id="rating-4" value="4">
+                            <label for="rating-4">
+                                <span class="rating-stars">★★★★☆</span> 4 Stars & Up
+                            </label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="checkbox" id="rating-3" value="3">
+                            <label for="rating-3">
+                                <span class="rating-stars">★★★☆☆</span> 3 Stars & Up
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badge Filter -->
+                <div class="filter-group">
+                    <h4>Special Offers</h4>
+                    <ul class="filter-options-list">
+                        <li>
+                            <input type="checkbox" id="badge-limited" value="Limited time deal">
+                            <label for="badge-limited">Limited Time Deals</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="badge-bestseller" value="Bestseller">
+                            <label for="badge-bestseller">Bestsellers</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="badge-sale" value="Sale">
+                            <label for="badge-sale">On Sale</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="badge-new" value="New">
+                            <label for="badge-new">New Arrivals</label>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <div class="products-grid" id="productsContainer">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <!-- Pagination buttons will be added here by JavaScript -->
+                </div>
+            </section>
         </div>
     </div>
 
@@ -843,7 +1302,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>About GlamMuse</h3>
-                    <p>GlamMuse is a premium fashion destination for women who appreciate style, quality, and elegance.</p>
+                    <p>GlamMuse is a premium fashion destination for women who appreciate style, quality, and elegance.
+                    </p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -887,6 +1347,47 @@
     </footer>
 
     <script>
+        const duration = {
+            days: 9,
+            hours: 5,
+            minutes: 10
+        };
+
+        let targetDate = getNewTargetDate();
+
+        function getNewTargetDate() {
+            const d = new Date();
+            d.setDate(d.getDate() + duration.days);
+            d.setHours(d.getHours() + duration.hours);
+            d.setMinutes(d.getMinutes() + duration.minutes);
+            return d;
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            let distance = targetDate - now;
+
+            if (distance < 0) {
+                // Reset the timer
+                targetDate = getNewTargetDate();
+                distance = targetDate - now;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        // Run every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
         // Product data with more realistic ratings
         const productsData = [
             {
@@ -898,7 +1399,7 @@
                 rating: 4.5,
                 badge: "Limited time deal",
                 image: "IMG/Item/1.jpg",
-                discount: 60 
+                discount: 40
             },
             {
                 id: 2,
@@ -909,7 +1410,7 @@
                 rating: 4.3,
                 badge: "Bestseller",
                 image: "IMG/Item/2.jpg",
-                discount: 25 
+                discount: 25
             },
             {
                 id: 3,
@@ -962,44 +1463,63 @@
         const searchInput = document.getElementById('searchInput');
         const categoryFilter = document.getElementById('categoryFilter');
         const sortSelect = document.getElementById('sortSelect');
-        const offerPopup = document.getElementById('offerPopup');
-        const closePopup = document.getElementById('closePopup');
-        const claimOfferBtn = document.getElementById('claimOfferBtn');
-        const popupTimer = document.getElementById('popupTimer');
-        const timerMinutes = document.getElementById('timerMinutes');
         const logoUrlInput = document.getElementById('logoUrlInput');
         const uploadLogoBtn = document.getElementById('uploadLogoBtn');
         const logoImage = document.getElementById('logoImage');
+        const gridViewBtn = document.getElementById('gridView');
+        const listViewBtn = document.getElementById('listView');
+        const paginationContainer = document.getElementById('pagination');
 
         // Welcome popup elements
         const welcomePopup = document.getElementById('welcomePopup');
         const closeWelcomePopup = document.getElementById('closeWelcomePopup');
         const claimWelcomeOfferBtn = document.getElementById('claimWelcomeOfferBtn');
 
-        // Timer variables
-        let timeLeft = 300; // 5 minutes in seconds for product popup
-        let timerInterval;
+        // Fullscreen popup elements
+        const fullscreenPopup = document.getElementById('fullscreenPopup');
+
+        // View mode (grid or list)
+        let currentView = 'grid';
+
+        // Pagination variables
+        const productsPerPage = 10;
+        let currentPage = 1;
+        let totalPages = 1;
+        let filteredProducts = [];
+
+        // Filter state
+        let filterState = {
+            categories: ['Nail Art & Polish'],
+            minPrice: 0,
+            maxPrice: 100,
+            ratings: [],
+            badges: []
+        };
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function () {
-            displayProducts(productsData);
+            // Initial display of all products
+            filteredProducts = productsData;
+            displayProducts();
 
             // Add event listeners
             searchInput.addEventListener('input', filterProducts);
             categoryFilter.addEventListener('change', filterProducts);
             sortSelect.addEventListener('change', filterProducts);
-            closePopup.addEventListener('click', closeOfferPopup);
-            claimOfferBtn.addEventListener('click', claimOffer);
             closeWelcomePopup.addEventListener('click', closeWelcomeOfferPopup);
             claimWelcomeOfferBtn.addEventListener('click', claimWelcomeOffer);
+            gridViewBtn.addEventListener('click', () => switchView('grid'));
+            listViewBtn.addEventListener('click', () => switchView('list'));
 
-            // Close popups when clicking outside
-            offerPopup.addEventListener('click', function (e) {
-                if (e.target === offerPopup) {
-                    closeOfferPopup();
-                }
+            // Initialize price range slider
+            initPriceSlider();
+
+            // Add event listeners to sidebar filters for auto-apply
+            document.querySelectorAll('.sidebar-filters input').forEach(input => {
+                input.addEventListener('change', applySidebarFilters);
             });
 
+            // Close welcome popup when clicking outside
             welcomePopup.addEventListener('click', function (e) {
                 if (e.target === welcomePopup) {
                     closeWelcomeOfferPopup();
@@ -1012,57 +1532,195 @@
             }, 10000);
         });
 
-        // Display products in the grid
-        function displayProducts(products) {
-            if (products.length === 0) {
+        // Initialize price range slider
+        function initPriceSlider() {
+            const rangeMin = document.getElementById('rangeMin');
+            const rangeMax = document.getElementById('rangeMax');
+            const minPrice = document.getElementById('minPrice');
+            const maxPrice = document.getElementById('maxPrice');
+            const progress = document.querySelector('.progress');
+
+            // Set initial values
+            rangeMin.value = filterState.minPrice;
+            rangeMax.value = filterState.maxPrice;
+            minPrice.value = filterState.minPrice;
+            maxPrice.value = filterState.maxPrice;
+
+            // Update progress bar
+            function updateProgress() {
+                progress.style.left = (rangeMin.value / rangeMin.max) * 100 + "%";
+                progress.style.right = 100 - (rangeMax.value / rangeMax.max) * 100 + "%";
+            }
+
+            // Update when range inputs change
+            rangeMin.addEventListener('input', function () {
+                minPrice.value = this.value;
+                if (parseInt(rangeMax.value) < parseInt(this.value)) {
+                    rangeMax.value = this.value;
+                    maxPrice.value = this.value;
+                }
+                updateProgress();
+                applySidebarFilters();
+            });
+
+            rangeMax.addEventListener('input', function () {
+                maxPrice.value = this.value;
+                if (parseInt(rangeMin.value) > parseInt(this.value)) {
+                    rangeMin.value = this.value;
+                    minPrice.value = this.value;
+                }
+                updateProgress();
+                applySidebarFilters();
+            });
+
+            // Update when number inputs change
+            minPrice.addEventListener('change', function () {
+                rangeMin.value = this.value;
+                if (parseInt(rangeMax.value) < parseInt(this.value)) {
+                    rangeMax.value = this.value;
+                    maxPrice.value = this.value;
+                }
+                updateProgress();
+                applySidebarFilters();
+            });
+
+            maxPrice.addEventListener('change', function () {
+                rangeMax.value = this.value;
+                if (parseInt(rangeMin.value) > parseInt(this.value)) {
+                    rangeMin.value = this.value;
+                    minPrice.value = this.value;
+                }
+                updateProgress();
+                applySidebarFilters();
+            });
+
+            updateProgress();
+        }
+
+        // Apply sidebar filters automatically
+        function applySidebarFilters() {
+            // Get selected categories
+            const categoryCheckboxes = document.querySelectorAll('input[type="checkbox"][value]');
+            filterState.categories = [];
+            filterState.ratings = [];
+            filterState.badges = [];
+
+            categoryCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    if (checkbox.id.startsWith('cat-')) {
+                        filterState.categories.push(checkbox.value);
+                    } else if (checkbox.id.startsWith('rating-')) {
+                        filterState.ratings.push(parseInt(checkbox.value));
+                    } else if (checkbox.id.startsWith('badge-')) {
+                        filterState.badges.push(checkbox.value);
+                    }
+                }
+            });
+
+            // Get price range
+            filterState.minPrice = parseInt(document.getElementById('minPrice').value);
+            filterState.maxPrice = parseInt(document.getElementById('maxPrice').value);
+
+            // Apply filters
+            filterProducts();
+        }
+
+        // Switch between grid and list view
+        function switchView(view) {
+            currentView = view;
+
+            if (view === 'grid') {
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+                productsContainer.classList.remove('products-list');
+                productsContainer.classList.add('products-grid');
+            } else {
+                gridViewBtn.classList.remove('active');
+                listViewBtn.classList.add('active');
+                productsContainer.classList.remove('products-grid');
+                productsContainer.classList.add('products-list');
+            }
+
+            // Re-render products with new view
+            displayProducts();
+        }
+
+        // Display products in the grid or list with pagination
+        function displayProducts() {
+            if (filteredProducts.length === 0) {
                 productsContainer.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--accent);">No products found matching your criteria.</div>';
+                paginationContainer.innerHTML = '';
                 return;
             }
 
+            // Calculate pagination
+            totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = Math.min(startIndex + productsPerPage, filteredProducts.length);
+            const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
             productsContainer.innerHTML = '';
 
-           productsData.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.className = 'product-card';
+            paginatedProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
 
-    // Generate star rating HTML - REAL TIME
-    const stars = generateRealStarRating(product.rating);
+                // Generate star rating HTML - REAL TIME
+                const stars = generateRealStarRating(product.rating);
 
-    // Generate badge if exists
-    const badge = product.badge ? `<span class="product-badge">${product.badge}</span>` : '';
+                // Generate badge if exists
+                const badge = product.badge ? `<span class="product-badge">${product.badge}</span>` : '';
 
-    // Check for discount
-    let priceHTML = `<div class="product-price">$${product.price.toFixed(2)}</div>`;
-    if (product.discount) {
-        const discountedPrice = (product.price * (1 - product.discount / 100)).toFixed(2);
-        priceHTML = `
-            <div class="product-price">
-                <span class="original-price">$${product.price.toFixed(2)}</span>
-                <span class="discounted-price">$${discountedPrice}</span>
-                <span class="discount-badge">${product.discount}% OFF</span>
-            </div>
-        `;
-    }
+                // Check for discount
+                let priceHTML = `<div class="product-price">$${product.price.toFixed(2)}</div>`;
+                if (product.discount) {
+                    const discountedPrice = (product.price * (1 - product.discount / 100)).toFixed(2);
+                    priceHTML = `
+                        <div class="product-price">
+                            <span class="original-price">$${product.price.toFixed(2)}</span>
+                            <span class="discounted-price">$${discountedPrice}</span>
+                            <span class="discount-badge">${product.discount}% OFF</span>
+                        </div>
+                    `;
+                }
 
-    productCard.innerHTML = `
-        ${badge}
-        <img src="${product.image}" alt="${product.name}" class="product-image">
-        <div class="product-info">
-            <div class="product-category">${product.category}</div>
-            <h3 class="product-title">${product.name}</h3>
-            <p class="product-description">${product.description}</p>
-            <div class="product-rating">
-                <div class="stars">${stars}</div>
-                <span class="rating-value">${product.rating.toFixed(1)}</span>
-            </div>
-            ${priceHTML}
-            <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
-        </div>
-    `;
+                // Different HTML structure for grid vs list view
+                if (currentView === 'grid') {
+                    productCard.innerHTML = `
+                        ${badge}
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-rating">
+                                <div class="stars">${stars}</div>
+                                <span class="rating-value">${product.rating.toFixed(1)}</span>
+                            </div>
+                            ${priceHTML}
+                            <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                        </div>
+                    `;
+                } else {
+                    productCard.innerHTML = `
+                        ${badge}
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-rating">
+                                <div class="stars">${stars}</div>
+                                <span class="rating-value">${product.rating.toFixed(1)}</span>
+                            </div>
+                            ${priceHTML}
+                            <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                        </div>
+                    `;
+                }
 
-    productsContainer.appendChild(productCard);
-});
-
+                productsContainer.appendChild(productCard);
+            });
 
             // Add event listeners to Add to Cart buttons
             document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -1073,12 +1731,69 @@
                 });
             });
 
-            // Add event listeners to product cards for showing offer
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('click', function () {
-                    showOfferPopup();
-                });
+            // REMOVED: Event listener for product card click to show offer popup
+
+            // Update pagination
+            updatePagination();
+        }
+
+        // Update pagination controls
+        function updatePagination() {
+            paginationContainer.innerHTML = '';
+
+            if (totalPages <= 1) return;
+
+            // Previous button
+            const prevButton = document.createElement('button');
+            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayProducts();
+                }
             });
+            paginationContainer.appendChild(prevButton);
+
+            // Page numbers
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.classList.toggle('active', i === currentPage);
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    displayProducts();
+                });
+                paginationContainer.appendChild(pageButton);
+            }
+
+            // Next button
+            const nextButton = document.createElement('button');
+            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayProducts();
+                }
+            });
+            paginationContainer.appendChild(nextButton);
+
+            // Page info
+            const pageInfo = document.createElement('div');
+            pageInfo.className = 'pagination-info';
+            const startProduct = (currentPage - 1) * productsPerPage + 1;
+            const endProduct = Math.min(currentPage * productsPerPage, filteredProducts.length);
+            pageInfo.textContent = `Showing ${startProduct}-${endProduct} of ${filteredProducts.length} products`;
+            paginationContainer.appendChild(pageInfo);
         }
 
         // Generate REAL star rating HTML (no half stars)
@@ -1106,18 +1821,30 @@
             const selectedCategory = categoryFilter.value;
             const sortBy = sortSelect.value;
 
-            let filteredProducts = productsData.filter(product => {
+            filteredProducts = productsData.filter(product => {
                 const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
                     product.description.toLowerCase().includes(searchTerm);
                 const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
 
-                return matchesSearch && matchesCategory;
+                // Apply sidebar filters
+                const matchesSidebarCategory = filterState.categories.length === 0 ||
+                    filterState.categories.includes(product.category);
+                const matchesPrice = product.price >= filterState.minPrice &&
+                    product.price <= filterState.maxPrice;
+                const matchesRating = filterState.ratings.length === 0 ||
+                    filterState.ratings.some(r => product.rating >= r);
+                const matchesBadge = filterState.badges.length === 0 ||
+                    (product.badge && filterState.badges.includes(product.badge));
+
+                return matchesSearch && matchesCategory && matchesSidebarCategory &&
+                    matchesPrice && matchesRating && matchesBadge;
             });
 
             // Sort products
             switch (sortBy) {
                 case 'newest':
                     // Keep original order (newest first based on ID)
+                    filteredProducts.sort((a, b) => b.id - a.id);
                     break;
                 case 'price-low':
                     filteredProducts.sort((a, b) => a.price - b.price);
@@ -1137,7 +1864,10 @@
                     });
             }
 
-            displayProducts(filteredProducts);
+            // Reset to first page when filtering
+            currentPage = 1;
+
+            displayProducts();
         }
 
         // Add to cart functionality
@@ -1172,36 +1902,15 @@
             }
         }
 
-        // Show special offer popup (when clicking on product)
-        function showOfferPopup() {
-            offerPopup.classList.add('active');
-            startTimer();
-        }
-
-        // Close offer popup
-        function closeOfferPopup() {
-            offerPopup.classList.remove('active');
-            clearInterval(timerInterval);
-            timeLeft = 300; // Reset timer
-        }
-
-        // Claim offer functionality (for product popup)
-        function claimOffer() {
-            alert('Congratulations! Your 70% discount has been applied to your cart.');
-            closeOfferPopup();
-        }
-
         // Close welcome offer popup
         function closeWelcomeOfferPopup() {
             welcomePopup.classList.remove('active');
         }
 
-        const partyPopup = document.getElementById('fullscreenPopup');
-
         // Claim welcome offer with party items animation
         function claimWelcomeOffer() {
             closeWelcomeOfferPopup(); // close the small welcome popup
-            partyPopup.classList.add('active');
+            fullscreenPopup.classList.add('active');
 
             const partyItems = ['🎉'];
 
@@ -1223,41 +1932,13 @@
 
             // Auto-hide popup after 5 seconds
             setTimeout(() => {
-                partyPopup.classList.remove('active');
+                fullscreenPopup.classList.remove('active');
             }, 5000);
         }
-
-
 
         // Close the fullscreen popup
         function closeFullscreenPopup() {
             fullscreenPopup.classList.remove('active');
-        }
-
-
-        // Start countdown timer for product popup
-        function startTimer() {
-            clearInterval(timerInterval);
-            updateTimerDisplay();
-
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay();
-
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    offerPopup.classList.remove('active');
-                    timeLeft = 300; // Reset timer
-                }
-            }, 1000);
-        }
-
-        // Update timer display for product popup
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            popupTimer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            timerMinutes.textContent = minutes;
         }
 
         // Update logo with custom image
